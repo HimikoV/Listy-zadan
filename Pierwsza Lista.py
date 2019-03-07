@@ -80,25 +80,30 @@ y=[]
 for x in range(56,101):
     y.append(2*x**2 + 2*x +2)
 print(y)
+print('-'*10)
 #2 ask the user for a number and print its factorial (1p)
-x=int(input("podaj dowolną liczbę:"))
+from cs50 import get_int
+x=0
+while x<=1 or x%1!=0:
+    x=float(input("podaj dowolną liczbę:"))
 y=1
-for i in range(1,x+1):
+for i in range(1,int(x)+1):
     y*=i
 print(y)
-
+print('-'*10)
 #3 write a function which takes an array of numbers as an input and finds the lowest value. Return the index of that element and its value (1p)
-lista_liczb=[122,67,34,98,64,324,65,32,27,125,754,29]
+from numpy import where,array,linspace
+lista_liczb=array([122,67,34,98,64,324,65,32,27,125,754,29,27])
 def najmniejsza_liczba(lista):
     najmniejsza=lista[0]
-    najmniejsza_index=None
     for i in range(1,len(lista)):
         if lista[i]<najmniejsza:
             najmniejsza=lista[i]
-            najmniejsza_index=i
-    print("najmniejsza liczba: ", najmniejsza, "index w liscie:",najmniejsza_index)
+    najmniejsza_index=where(lista==najmniejsza)[0]
+    print("najmniejsza liczba: ", najmniejsza, "|index w liscie:",najmniejsza_index)
+print('lista liczb:',lista_liczb)
 najmniejsza_liczba(lista_liczb)
-
+print('-'*10)
 #4 looking at lab1-input and lab1-plot files create your own python script that takes a number and returns any chart of a given length.
 #the length of a chart is the input to your script. The output is a plot (it doesn't matter if it's a y=x or y=e^x+2x or y=|x| function, use your imagination)
 #test your solution properly. Look how it behaves given different input values. (1p)
@@ -106,12 +111,12 @@ from numpy import *
 from numpy.random import *
 from matplotlib.pyplot import *
 x=int(input("podaj długość wykresu:"))
-y=[]
-for i in range(x):
-    y.append(randint(-100,100))
-plot(y)
+y=linspace(-100,x)
+z=(y-10)**2
+plot(y,z)
 show()
+print('-'*10)
 #5 upload the solution as a Github repository. I suggest creating a directory for the whole python course and subdirectories lab1, lab2 etc. (0.5p)
 #Ad 5 Hint write in Google "how to create a github repo". There are plenty of tutorials explaining this matter.
 
-#my github repository: https://github.com/HimikoV/Listy-zadan
+print('my github repository: https://github.com/HimikoV/Listy-zadan')
