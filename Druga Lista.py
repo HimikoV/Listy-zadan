@@ -29,9 +29,9 @@ from cs50 import get_int,get_float,get_char
 
 # TASKS (8p)- calculate & print:
 #0 Use alternative way of reading inputs - using library (0.5p)
-x=get_int("x:") #tylko całkowite liczby
-y=get_char("y:") #tylko 1 litera
-z=get_float("z:") #jaka kolwiek liczba
+x=get_int("podaj liczbe całkowita:") #tylko całkowite liczby
+y=get_char("podaj litere:") #tylko 1 litera
+z=get_float("podaj liczbe zmiennoprzecinkowa:") #jaka kolwiek liczba
 print(f"int:{x} char:{y} float:{z}")
 print('-'*15)
 #1 Perimeter & field of circles with given radius X for the first circle & Y for the second one. (1p)
@@ -41,13 +41,13 @@ Y=get_float("R2:")
 def kola(promien):
     Perimeter=2*pi*promien
     Field=pi*promien**2
-    return Perimeter,Field
-print(f"obwod i pole kola #1: {kola(X)} obwod i pole kola #2: {kola(Y)}")
+    return print(f"obwod: {Perimeter},pole: {Field}")
+print(f" kolo #1: {kola(X)} kolo #2: {kola(Y)}")
 print('-'*15)
 #2 Find X & Y that satisfy: X is divisible by Y and both X & Y are even. (0.5p)
 iks=get_int("iks:")
 igrek=get_int("igrek:")
-while iks%igrek!=0 or iks%2!=0 or igrek%2!=0:
+while iks%igrek!=0 or iks%2!=0 or igrek%2!=0 or iks==0 or igrek==0:
     iks = get_int("iks:")
     igrek = get_int("igrek:")
 print(f"iks:{iks} igrek:{igrek}")
@@ -59,7 +59,8 @@ yy=get_float("yy:")
 print(f"xx is divisible by yy" if xx%yy==0 else "xx is not divisible by yy")
 print('-'*15)
 #4 Add rounding for the above x/y operation. Round to 2 decimal points. Hint: look up in Google "python limiting number of decimals". (1p)
-print("%s" %round(xx/yy,2)) #nie dziala
+print("%s" %round(xx/yy,2)) #nie dziala, dla wszystkich przypadków
+print(f"{xx/yy}.2f") #nie działa
 print("{0:.2f}".format(xx/yy)) #dziala
 print("{0:.1500f}".format(xx/yy))
 print('-'*15)
