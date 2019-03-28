@@ -14,7 +14,10 @@ def counting(type,x,y=None):
     elif type=="rectangle":
         return x*y
 def countField():
-    type=input("choose type of figure: circle || triangle || rectangle || rhombus:    ")
+    type = input("choose type of figure: circle || triangle || rectangle || rhombus    ")
+    while type!="circle" and type!="triangle" and type!="rectangle" and type!="rhombus""":
+        type = input("you have chose wrong type of figure, try again: circle || triangle || rectangle || rhombus ")
+
     if type=="circle":
         x=get_float("input an radius:  ")
         return print(counting(type,x))
@@ -22,13 +25,16 @@ def countField():
         x,y=get_float("input x parameter:  "),get_float("input y parameter:  ")
         return  print(counting(type,x,y))
 
+
 countField()
 print('-'*30)
 #2 Write a function which takes sets of parameters of two figures and compares their fields. (4p)
 # The exemplary input is [[Circle, 4], [Rhombus, 2, 4]]
 # Expected output would be 'The first figure (Circle) has larger field'
 def exemplary_input():
-    type=input("choose type of figure: circle || triangle || rectangle || rhombus:    ")
+    type = input("choose type of figure: circle || triangle || rectangle || rhombus    ")
+    while type != "circle" and type!="triangle" and type!="rectangle" and type!="rhombus""":
+        type = input("you have chose wrong type of figure, try again: circle || triangle || rectangle || rhombus ")
     if type=="circle":
         x=get_float("input an radius:  ")
         y=None
@@ -39,10 +45,9 @@ def exemplary_input():
 
 def which_one(zestaw1,zestaw2):
     if counting(zestaw1[0],zestaw1[1],zestaw1[2])>counting(zestaw2[0],zestaw2[1],zestaw2[2]):
-        print(f'The first figure ({zestaw1[0]}) has larger field')
+        print(f'The first figure ({zestaw1[0]}) has larger field which is {counting(zestaw1[0],zestaw1[1],zestaw1[2])}')
     else:
-        print(f'The second figure ({zestaw2[0]}) has larger field')
-
+        print(f'The second figure ({zestaw2[0]}) has larger field which is {counting(zestaw2[0],zestaw2[1],zestaw2[2])}')
 
 for i in range(2):
     exemplary_input()
